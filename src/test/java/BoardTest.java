@@ -18,4 +18,23 @@ public class BoardTest {
         assertFalse(board.isCellEmpty(0,0));
     }
 
+
+    // test the method "isFull"
+    @Test
+    public void testFullTrue(){
+        Board board = new Board();
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                board.place(i,j,'X');
+            }
+        }
+        assertTrue(board.isFull());
+    }
+
+    @Test
+    public void testFullFalse(){
+        Board board = new Board();
+        assertFalse(board.isFull());
+    }
+
 }
