@@ -11,4 +11,12 @@ public class Player {
         this.marker = marker;
     }
 
+    //#########################################################################
+    //methods
+
+    //get marker
+    public char getMarker() {
+        return marker;
+    }
+
 }
