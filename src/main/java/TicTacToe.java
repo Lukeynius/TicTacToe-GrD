@@ -111,9 +111,6 @@ public class TicTacToe {
 
     // check if the current player has won
     private boolean hasWinner() {
-        char m = currentPlayer.getMarker();
-
-        // win combinations
         int[][][] kombis = {
                 {{0, 0}, {0, 1}, {0, 2}},
                 {{1, 0}, {1, 1}, {1, 2}},
@@ -133,22 +130,11 @@ public class TicTacToe {
             if (!board.isCellEmpty(x1, y1) &&
                     !board.isCellEmpty(x2, y2) &&
                     !board.isCellEmpty(x3, y3)) {
-
-                // placing on an occupied field will fail therefore is a marker here
-                Board test = new Board();
-                test.clear();
-                test.place(x1, y1, m);
-                test.place(x2, y2, m);
-                test.place(x3, y3, m);
-
-                if (test.isCellEmpty(x1, y1) &&
-                        test.isCellEmpty(x2, y2) &&
-                        test.isCellEmpty(x3, y3)) {
-                    return true;
-                }
+                return true;
             }
         }
 
         return false;
     }
+
 }
