@@ -102,39 +102,8 @@ public class TicTacToe {
         scanner.close();
     }
 
-
     // switch the current player
     private void switchCurrentPlayer() {
         currentPlayer = (currentPlayer == player1) ? player2 : player1;
     }
-
-
-    // check if the current player has won
-    private boolean hasWinner() {
-        int[][][] kombis = {
-                {{0, 0}, {0, 1}, {0, 2}},
-                {{1, 0}, {1, 1}, {1, 2}},
-                {{2, 0}, {2, 1}, {2, 2}},
-                {{0, 0}, {1, 0}, {2, 0}},
-                {{0, 1}, {1, 1}, {2, 1}},
-                {{0, 2}, {1, 2}, {2, 2}},
-                {{0, 0}, {1, 1}, {2, 2}},
-                {{0, 2}, {1, 1}, {2, 0}}
-        };
-
-        for (int[][] kombi : kombis) {
-            int x1 = kombi[0][0], y1 = kombi[0][1];
-            int x2 = kombi[1][0], y2 = kombi[1][1];
-            int x3 = kombi[2][0], y3 = kombi[2][1];
-
-            if (!board.isCellEmpty(x1, y1) &&
-                    !board.isCellEmpty(x2, y2) &&
-                    !board.isCellEmpty(x3, y3)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
 }
