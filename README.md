@@ -1,2 +1,2 @@
-# TicTacToe-GrD
+# example.TicTacToe-GrD
 Study-Repo SLT 2025 Group-D
