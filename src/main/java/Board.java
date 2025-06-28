@@ -1,5 +1,6 @@
 public class Board {
 
+
     //#########################################################################
     // variables
     private char[][] cells;
@@ -12,8 +13,33 @@ public class Board {
         clear();
     }
 
+
     //#########################################################################
     //methods
+
+    // check if the cell is empty
+    public char isCellEmpty(int x, int y) {
+        return cells[x][y];
+    }
+
+    // place a symbol if it is empty
+    public void place(int x, int y, char marker) {
+        if (cells[x][y] == ' ') {
+            cells[x][y] = marker;
+        }
+    }
+
+    // check if the board is full
+    public boolean isFull() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (cells[i][j] == ' ') {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
     // clear the board
     public void clear() {
@@ -24,32 +50,15 @@ public class Board {
         }
     }
 
-    // print the board
+    // print the board in the console
     public void print() {
-        System.out.println("Current board:");
+        System.out.println("Aktuelles Spielfeld:");
         for (int i = 0; i < 3; i++) {
-            System.out.print(" ");
             for (int j = 0; j < 3; j++) {
-                System.out.print(cells[i][j]);
-                if (j < 2) System.out.print(" | ");
+                System.out.print(cells[i][j] == ' ' ? "-" : cells[i][j]);
+                if (j < 2) System.out.print("|");
             }
             System.out.println();
-            if (i < 2) System.out.println("---+---+---");
         }
     }
-
-    // check if the cell is empty
-    public boolean isCellEmpty(int x, int y) {
-        return cells[x][y] == ' ';
-    }
-
-    // place a character on the given cell
-    public void place(int x, int y, char marker) {
-        if (isCellEmpty(x, y)) {
-            cells[x][y] = marker;
-        } else {
-            System.out.println("Cell is already occupied.");
-        }
-    }
-
 }
