@@ -52,7 +52,7 @@ public class TicTacToe {
                     y = scanner.nextInt();
 
                     if (x >= 0 && x < 3 && y >= 0 && y < 3) {
-                        if (board.isCellEmpty(x, y)) {
+                        if (board.isCellEmpty(x, y) == ' ') {
                             board.place(x, y, currentPlayer.getMarker());
                             break;
                         } else {
@@ -102,14 +102,11 @@ public class TicTacToe {
         scanner.close();
     }
 
-
     // switch the current player
     private void switchCurrentPlayer() {
         currentPlayer = (currentPlayer == player1) ? player2 : player1;
     }
 
-
-    // check if the current player has won
     private boolean hasWinner() {
         int[][][] kombis = {
                 {{0, 0}, {0, 1}, {0, 2}},
@@ -123,13 +120,11 @@ public class TicTacToe {
         };
 
         for (int[][] kombi : kombis) {
-            int x1 = kombi[0][0], y1 = kombi[0][1];
-            int x2 = kombi[1][0], y2 = kombi[1][1];
-            int x3 = kombi[2][0], y3 = kombi[2][1];
+            char m1 = board.isCellEmpty(kombi[0][0], kombi[0][1]);
+            char m2 = board.isCellEmpty(kombi[1][0], kombi[1][1]);
+            char m3 = board.isCellEmpty(kombi[2][0], kombi[2][1]);
 
-            if (!board.isCellEmpty(x1, y1) &&
-                    !board.isCellEmpty(x2, y2) &&
-                    !board.isCellEmpty(x3, y3)) {
+            if (m1 != ' ' && m1 == m2 && m2 == m3) {
                 return true;
             }
         }
