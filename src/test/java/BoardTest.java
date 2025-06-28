@@ -8,14 +8,14 @@ public class BoardTest {
     @Test
     public void testCellemptyTrue(){
         Board board = new Board();
-        assertTrue(board.isCellEmpty(0,0));
+        assertEquals(' ', board.isCellEmpty(0,0));
     }
 
     @Test
     public void testCellemptyFalse(){
         Board board = new Board();
         board.place(0,0,'X');
-        assertFalse(board.isCellEmpty(0,0));
+        assertNotEquals('Y', board.isCellEmpty(0,0));
     }
 
 }

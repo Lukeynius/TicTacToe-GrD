@@ -39,17 +39,28 @@ public class Board {
     }
 
     // check if the cell is empty
-    public boolean isCellEmpty(int x, int y) {
-        return cells[x][y] == ' ';
+    public char isCellEmpty(int x, int y) {
+        return cells[x][y];
     }
 
     // place a character on the given cell
     public void place(int x, int y, char marker) {
-        if (isCellEmpty(x, y)) {
+        if (cells[x][y] == ' ') {
             cells[x][y] = marker;
-        } else {
-            System.out.println("Cell is already occupied.");
+        }else{
+            System.out.println("Dieses Feld ist bereits belegt.");
         }
+    }
+
+    public boolean isFull() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (cells[i][j] == ' ') {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
 }
