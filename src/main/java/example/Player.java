@@ -1,3 +1,5 @@
+package example;
+
 public class Player {
 
     //#########################################################################
@@ -9,6 +11,14 @@ public class Player {
     // Constructor
     public Player(char marker) {
         this.marker = marker;
+    }
+
+    //#########################################################################
+    //methods
+
+    //get marker
+    public char getMarker() {
+        return marker;
     }
 
 }
